@@ -6,7 +6,9 @@
 
 # Contexto
 Projeto desenvolvido no âmbito da cadeira de Base de Dados que consistia no desenvolvimento de um website com ligações a uma base de dados à nossa escolha usando flask.
-A base de dados escolhida foi de jogos de xadrez da plataforma lichess.org 
+
+A base de dados escolhida foi de jogos de xadrez da plataforma lichess.org
+
 Inúmeras entradas foram adicionadas manualmente como Win Rate dos jogadores ou mesmo a nacionalidade
 
 # Desenvolvimento da aplicação da 2ª parte do projeto
