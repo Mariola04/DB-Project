@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> <b>Moves ID: </b>{{ moves.id_moves }}</h1>
+<p>
+  <b>Game ID: <a href = "/games/{{moves.id_game}} "> {{ moves.id_game }}</a></b>
+</p>
+<p>
+  <b>Moves: </b>{{ moves.moves }}
+</p>
+<p>
+  <b>Turns: </b>{{ moves.turns }}
+</p>
+<p>
+  <b>Opening Name: </b>{{ moves.opening_name }} 
+</p>
+<p>
+    <b>Opening Ply: </b>{{ moves.opening_ply }} 
+</p>
+
+{%endblock %}

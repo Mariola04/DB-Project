@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> <b>Game ID: </b>{{ game.id_game }}</h1>
+<p>
+  <b>Game ID: </b>{{ game.id_game }}
+</p>
+<p>
+  <b>Rated: </b>{{ game.rated }}
+</p>
+<p>
+  <b>Victory Status: </b>{{ game.victory_status }}
+</p>
+<p>
+  <b>Winner: </b>{{ game.winner }} 
+</p>
+<p>
+    <b>Increment Code: </b>{{ game.increment_code }}
+</p>
+<p>
+    <b>White ID: <a href="/players/{{ game.white_id }}">{{ game.white_id }}</a></b> 
+</p>
+<p>
+    <b>Black ID: <a href="/players/{{ game.black_id }}">{{ game.black_id }}</a></b>
+</p>
+
+<p>
+  <h2> Played By: </h2>
+</p>
+<p>
+  <b> White: <a href="/players/{{ game.white_id }}">{{ player1.name }}</a></b> 
+</p>
+<p>  
+  <b>Black: <a href="/players/{{ game.black_id }}">{{ player2.name }}</a></b>
+</p>
+
+<p>
+  <h2><b> Who watched this game: </b></h2>
+<ul>
+  {%if observers%}
+  {% for o in observers %}
+  <li>
+    <a href="/observers/{{ o.id_Observer }}">{{ o.Name }}</a>
+  </li>
+  {% endfor %}
+  {%else%}
+  <em> No one watched this game </em>
+  {%endif%}
+</ul>
+</p>
+
+<p>
+  <h2><b> Moves in the game: </b></h2>
+<ul>
+    <b> Moves ID: <a href="/moves/{{ moves.id_moves }}">{{ moves.id_moves }}</a></b>
+    <p>{{moves.moves}}</p>
+</ul>
+</p>
+{%endblock %}

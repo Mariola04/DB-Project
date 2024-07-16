@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Moves</h1>
+<table>
+    <tr>
+      <th>
+        <b>ID</b>
+      </th>
+      <th>
+        <b>Moves</b>
+      </th>
+      <th>
+        <b>Turns</b>
+      </th>
+      <th>
+        <b>Opening Name</b>
+      </th>
+      <th>
+        <b>Opening Ply</b>
+      </th>  
+  </tr>
+
+  {% for moves in moves %}
+  <tr>
+    <td>
+      <a href="/moves/{{ moves.id_game }}">{{ moves.id_game }}</a>
+    </td>
+    <td>
+      {{ moves.moves }}
+    </td>
+    <td>
+      {{ moves.turns}}
+    </td>
+    <td>
+      {{ moves.opening_name }}
+    </td>
+    <td>
+      {{ moves.opening_ply }}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

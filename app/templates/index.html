@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block header %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <h1>{% block title %}Game database {% endblock %}</h1>
+{% endblock %}
+{% block content %}
+<div class="image-container">
+   <div class="title-text">
+      <h1>Lichess.org (CC2005)</h1>
+   </div>
+   <img src="/static/chess.jpeg" alt="Base de Dados (CC2005)" style="width:1200px;height:auto;">
+</div>
+<div class="text-container">
+   <h2>About</h2>
+   <p>This web application illustrates the use of our Lichess.org Chess Games
+       database. The application is built using
+       <a href="https://pymysql.readthedocs.io/">PyMySQL</a>,
+       <a href="https://flask.palletsprojects.com">Flask</a>, and
+       <a href="https://jinja.palletsprojects.com">Jinja</a>.
+       <br>
+       <br>
+       Webpage created and designed by Francisco Carqueija, Francisco Tavares, and Mário Minhava.
+   </p>
+</div>
+
+
+    <h2>Some database statistics</h2>
+    <table>
+        <tr>
+            <th>Items</th>
+            <th>Count</th>
+        </tr>
+        <tr>
+            <td>Games</td>
+            <td>{{ stats.g }}</td>
+          </tr>
+          <tr>
+            <td>Players</td>
+            <td>{{ stats.p }}</td>
+          </tr>
+          <tr>
+            <td>Moves</td>
+            <td>{{ stats.m }}</td>
+          </tr>
+          <tr>
+            <td>Observers</td>
+            <td>{{ stats.o }}</td>
+          </tr>
+          <tr>
+            <td>Achievments</td>
+            <td>{{ stats.a }}</td>
+          </tr>
+    </table>
+
+    <h2>Sample functionality</h2>
+
+    <h3>Games</h3>
+    <p>
+       <a href="/games"> <h4>List all</h4></a>
+    </p>
+    <p>Get Game info:
+    <form name="gid" action="javascript:window.open('/games/'+document.forms['gid'].elements['id'].value,'_self')">
+       Game ID:<input value="100" name="id" type="number" min="1"/><input type="submit" value="get"/>
+    </form>
+    </p>
+    <p>
+      <a href="/games-stats"><h4>Top 50 Longest Games</h4></a>
+   </p>
+
+    <h3>Players</h3>
+    <p>
+       <a href="/players"><h4>List all</h4></a>
+    </p>
+    <p>Get Player info:
+    <form name="pid" action="javascript:window.open('/players/'+document.forms['pid'].elements['id'].value,'_self')">
+       Player ID:<input value="100" name="id" type="number" min="1"/><input type="submit" value="get"/>
+    </form>
+    </p>
+    <p>
+      <form name="psearch" action="javascript:window.open('/players/search/'+document.forms['psearch'].elements['expr'].value,'_self')">
+        <input name="expr" id="expr" value="João" required/>
+        <input type="submit" value="search"/>
+      </form>
+    </p>
+    <p>
+      <a href="/players-stats"><h4>Top 50 Players with most games made</h4></a>
+   </p>
+
+   
+
+    <h3>Moves</h3>
+    <p>
+       <a href="/moves"><h4>List all</h4></a>
+    </p>
+    <p>Get Moves info:
+    <form name="mid" action="javascript:window.open('/moves/'+document.forms['mid'].elements['id'].value,'_self')">
+       Game ID:<input value="100" name="id" type="number" min="1"/><input type="submit" value="get"/>
+    </form>
+    </p>
+  
+    <h3>Observers</h3>
+    <p>
+       <a href="/observers"><h4>List all</h4></a>
+    </p>
+    <p>Get Observer info:
+    <form name="oid" action="javascript:window.open('/observers/'+document.forms['oid'].elements['id'].value,'_self')">
+       Observer ID:<input value="100" name="id" type="number" min="1"/><input type="submit" value="get"/>
+    </form>
+    </p>
+
+    <h3>Achievments</h3>
+    <p>
+       <a href="/achievments"><h4>List all</h4></a>
+    </p>
+    <p>Get Achievment info:
+    <form name="aid" action="javascript:window.open('/achievments/'+document.forms['aid'].elements['id'].value,'_self')">
+       Achievment ID:<input value="1" name="id" type="number" min="1"/><input type="submit" value="get"/>
+    </form>
+    </p>
+    <p>
+      <form name="asearch" action="javascript:window.open('/achievments/search/'+document.forms['asearch'].elements['expr'].value,'_self')">
+        <input name="expr" id="expr" value="João" required/>
+        <input type="submit" value="search"/>
+      </form>
+    </p>
+    
+
+{% endblock %}

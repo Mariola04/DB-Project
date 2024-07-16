@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ player.name }}</h1>
+<p>
+  <b>ID: </b>{{ player.id_player }}
+</p>
+<p>
+  <b>Name: </b>{{ player.name }}
+</p>
+<p>
+  <b>Win/Lose: </b>{{ player.win_losses }}
+</p>
+<p>
+  <b>T Points: </b>{{ player.t_points }} 
+</p>
+<p>
+  <b>Member Since: </b>{{ player.member_since }}
+</p>
+<p>
+    <b>Play Time: </b>{{ player.play_time }} 
+</p>
+<p>
+    <b>Games Made: </b>{{ player.games_made }} 
+</p>
+<p>
+    <b>Country: </b>{{ player.country }} 
+</p>
+<p>
+    <b>Puzzles Made: </b>{{ player.puzzles_made }} 
+</p>
+<p>
+  <h2><b>Games {{player.name}} made: </b></h2>
+<ul>
+  {% for g in games %}
+  <li>
+    <a href="/games/{{ g.id_game }}">{{ g.id_game }}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+
+<p>
+  <h2><b>{{player.name}} Achievments: </b></h2>
+<ul>
+  {%if achievments%}
+  {% for a in achievments %}
+  <li>
+    <a href="/achievments/{{ a.id_achievment }}">{{ a.Name }}</a>
+  </li>
+  {% endfor %}
+  {%else%}
+  <em> This player has no achievments </em>
+  {%endif%}
+</ul>
+</p>
+
+<p>
+  <h2><b>{{player.name}} biggest fan(s): </b></h2>
+<ul>
+  {%if observers%}
+  {% for o in observers %}
+  <li>
+    <a href="/observers/{{ o.id_Observer }}">{{ o.Name }}</a>
+  </li>
+  {% endfor %}
+  {%else%}
+    <em>  This player player has no fans  </em>
+  {% endif %}
+</ul>
+</p>
+
+
+{%endblock %}

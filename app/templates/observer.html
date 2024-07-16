@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1> <b>Username: </b>{{ observers.Name }}</h1>
+<p>
+  <b>Observer ID: </b>{{ observers.id_Observer }}
+</p>
+<p>
+  <b>Username: </b>{{ observers.Name }}
+</p>
+<p>
+  <b>Fan of: </b><a href = "/players/{{observers.id_Player}}">{{ observers.id_Player }}</a>
+</p>
+
+<p>
+  <h2><b> Games {{observers.Name}} watched: </b></h2>
+<ul>
+  {% for g in games %}
+  <li>
+    <a href="/games/{{ g.id_game }}">{{ g.id_game }}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+
+
+
+{%endblock %}

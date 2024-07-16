@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Games</h1>
+<table>
+  <tr>
+    <th>
+      <b>ID</b>
+    </th>
+    <th>
+      <b>Rated</b>
+    </th>
+    <th>
+      <b>Victory Status</b>
+    </th>
+    <th>
+      <b>Winner</b>
+    </th>
+    <th>
+      <b>Increment Code</b>
+    </th>  
+    <th>
+      <b>White ID</b>
+    </th>
+    <th>
+      <b>Black ID</b>
+    </th> 
+</tr>
+
+  {% for game in games %}
+  <tr>
+    <td>
+      <a href="/games/{{ game.id_game }}">{{ game.id_game }}</a>
+    </td>
+    <td>
+      {{ game.rated }}
+    </td>
+    <td>
+      {{ game.victory_status }}
+    </td>
+    <td>
+      {{ game.winner }}
+    </td>
+    <td>
+      {{ game.increment_code }}
+    </td>
+    <td>
+      <a href="/players/{{ game.white_id }}">{{ game.white_id }}</a>
+    </td>
+    <td>
+      <a href="/players/{{ game.black_id }}">{{ game.black_id }}</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
